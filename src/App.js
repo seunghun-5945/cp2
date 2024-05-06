@@ -1,73 +1,42 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import Layout from "./components/Layout";
+import { motion } from "framer-motion";
+import Home from "./Home";
 
 const Container = styled.div`
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
-  background-image: linear-gradient(white, lightgreen, lightgreen, lightgreen);
+  margin-left: 40px;
+  ul {
+    font-size: 40px;
+    font-weight: bold;  
+  }
+  h2 {
+    margin-top: 20px;
+    text-decoration: underline;
+    color: black;
+    cursor: pointer;
+  }
 `;
 
-const Frame = styled.div`
-  width: 80%;
-  height: 80%;
-  border: 1px solid lightgray;
-  display: flex;
-  background-color: white;
-`;
-
-const LeftArea = styled.div`
-  width: 50%;
-  height: 100%;
-  background-color: lightsalmon;
-`;
-
-const RightArea = styled.div`
-  width: 50%;
-  height: 100%;
-  background-color: white;
-`;
-
-const SmallBox = styled.div`
-  width: 100%;
-  height: 10%;
-  display: flex;
-  border: 1px solid black;
-`;
-
-const SmallBoxItem = styled.div`
-  width: 50%;
-  height: 100%;
-  border: 1px solid black;
-  display: flex;
-`;
-
-const BigBox = styled.div`
-  width: 100%;
-  height: 30%;
-  border: 1px solid black;
-`;
-
-const App = () => {
+const AppMainContent = () => {
   return (
     <Container>
-      <Frame>
-        <LeftArea />
-        <RightArea>
-          <SmallBox>
-            <SmallBoxItem />
-            <SmallBoxItem />
-          </SmallBox>
-          <BigBox />
-          <BigBox />
-          <BigBox />
-        </RightArea>
-      </Frame>
+      <ul>당신에게 지금 당장 필요한 경매를 찾아보세요 <br/> 혹은 당신의 물품을 판매하세요</ul>
+      <Link to="/Home">
+        <h2>바로 시작하기</h2>
+      </Link>
     </Container>
   );
 };
+
+const App = () => {
+  return <Layout props={<AppMainContent/>}/>
+}
 
 export default App;
